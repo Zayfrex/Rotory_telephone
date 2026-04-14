@@ -1,4 +1,6 @@
 #include <Arduino.h>
+/*Rotory Phone
+Rotory Counter every number on the dial corrisponds to the number of high pulses >> ex. 5 = 5 high pulses*/
 
 #define SPEAKER_PIN 9
 #define ROTORY_PIN A5
