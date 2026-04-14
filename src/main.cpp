@@ -11,6 +11,7 @@ void setup() {
   pinMode(SPEAKER_PIN, OUTPUT);
   pinMode(ROTORY_PIN, INPUT);
   Serial.begin(9600);
+  playMelody(SPEAKER_PIN);
 }
 uint16_t rotoryValue = 0;
 uint8_t volts = 0;
