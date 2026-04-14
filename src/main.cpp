@@ -8,11 +8,15 @@ void playMelody(int pin);
 void setup() {
   pinMode(SPEAKER_PIN, OUTPUT);
   pinMode(ROTORY_PIN, INPUT);
+  Serial.begin(9600);
 }
+uint16_t rotoryValue = 0;
+uint8_t volts = 0;
 
 void loop() {
-  uint16_t rotoryValue = analogRead(ROTORY_PIN);
-  printf("Rotory Value: %d\n", rotoryValue);
+  rotoryValue = analogRead(ROTORY_PIN);
+  volts = rotoryValue * 5/1024;
+  Serial.println(volts);
 }
 
 void playMelody(int pin) {
