@@ -1,16 +1,18 @@
 #include <Arduino.h>
 
 #define SPEAKER_PIN 9
-//adsd
+#define ROTORY_PIN A5
+
 void playMelody(int pin);
 
 void setup() {
   pinMode(SPEAKER_PIN, OUTPUT);
+  pinMode(ROTORY_PIN, INPUT);
 }
 
 void loop() {
-  playMelody(SPEAKER_PIN);
-  delay(2000);
+  uint16_t rotoryValue = analogRead(ROTORY_PIN);
+  printf("Rotory Value: %d\n", rotoryValue);
 }
 
 void playMelody(int pin) {
