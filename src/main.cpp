@@ -16,6 +16,8 @@ Rotary Plate > contacts always closed open for every number so --> 5 = 5 times o
 button pull up so when number gets imputted we get high signals
 
 Switch for ISR pulled down to gnd
+
+repo git: https://github.com/Zayfrex/Rotory_telephone
 */
 
 #define SPEAKER_PIN 9
