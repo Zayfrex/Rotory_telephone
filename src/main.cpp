@@ -12,6 +12,7 @@ Switch for ISR pulled down to gnd
 //#define ROTORY_PIN A5
 #define START_Button 2  
 #define ROTORY_PIN 3 
+#define TONE_DURATION 500
 
 enum NOTES{
   C,
@@ -67,39 +68,39 @@ void playMelody(int pin) {
   }
 }
 
-void playNote(uint8_t note,int pin){ //IF needed 
+void playNote(uint8_t note,int pin){ //IF needed --------!!!!! need to add the counter reset 
   switch (note)
   {
     case NOTES::C:
-      tone(pin, 262);
+      tone(pin, 262,TONE_DURATION);
       break;
 
     case NOTES::D:
-      tone(pin, 294);
+      tone(pin, 294),TONE_DURATION;
       break;
 
     case NOTES::E:
-      tone(pin, 330);
+      tone(pin, 330,TONE_DURATION);
       break;
 
     case NOTES::F:
-      tone(pin, 349);
+      tone(pin, 349,TONE_DURATION);
       break;
 
     case NOTES::G:
-      tone(pin, 392);
+      tone(pin, 392,TONE_DURATION);
       break;
 
     case NOTES::A:
-      tone(pin, 440);
+      tone(pin, 440,TONE_DURATION);
       break;
 
     case NOTES::B:
-      tone(pin, 494);
+      tone(pin, 494,TONE_DURATION);
       break;
 
     default:
-      noTone(8);
+      noTone(pin);
       break;
   }
 }
