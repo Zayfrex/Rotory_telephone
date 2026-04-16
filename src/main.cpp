@@ -1,11 +1,27 @@
 #include <Arduino.h>
 /*Rotory Phone
-Rotory Counter every number on the dial corrisponds to the number of high pulses >> ex. 5 = 5 high pulses*/
+Rotory Counter every number on the dial corrisponds to the number of high pulses >> ex. 5 = 5 high pulses
+
+Rotory Plate > contacts always closed open for every number so --> 5 = 5 times opening button.
+button pull up so when number gets imputted we get high signals
+
+Switch for ISR pulled down to gnd
+*/
 
 #define SPEAKER_PIN 9
 //#define ROTORY_PIN A5
 #define START_Button 2  
 #define ROTORY_PIN 3 
+
+enum NOTES{
+  C,
+  D,
+  E,
+  F,
+  G,
+  A,
+  B,
+};
 
 bool start_flag = false;
 volatile bool start_stop_flag_reading = false; // deklare it as volatile, because i change it in the interrupt
@@ -51,6 +67,42 @@ void playMelody(int pin) {
   }
 }
 
+void playNote(uint8_t note,int pin){ //IF needed 
+  switch (note)
+  {
+    case NOTES::C:
+      tone(pin, 262);
+      break;
+
+    case NOTES::D:
+      tone(pin, 294);
+      break;
+
+    case NOTES::E:
+      tone(pin, 330);
+      break;
+
+    case NOTES::F:
+      tone(pin, 349);
+      break;
+
+    case NOTES::G:
+      tone(pin, 392);
+      break;
+
+    case NOTES::A:
+      tone(pin, 440);
+      break;
+
+    case NOTES::B:
+      tone(pin, 494);
+      break;
+
+    default:
+      noTone(8);
+      break;
+  }
+}
 
 void start_reading()
 {
